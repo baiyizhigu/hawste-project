@@ -1,0 +1,21 @@
+<div style="float: left;">
+    <div style="padding-top:5px;">
+			<span class="badge badge-info">
+				当前第 {{pageInfo.current}} 页 / {{pageInfo.pages}} 页，共 {{pageInfo.total}} 条数据
+			</span>
+    </div>
+</div>
+<div>
+    <div class="pagination no-margin pull-right clearfix">
+        <li class="prev "><a href="javascript:void(0);" @click="select(1,pageInfo.size)">首页</a></li>
+        <!--如果是第一页的上一页 则添加禁止点击样式  且应该无法点击 -->
+        <!--可以访问上一页情况-->
+        <li v-if="pageInfo.hasPreviousPage" class="prev"><a href="javascript:void(0);" @click="select(pageInfo.prePage,pageInfo.size)">上一页</a></li>
+        <li v-else class="prev disabled"><a href="javascript:void(0);" >上一页</a></li>
+        <li v-for="num in pageInfo.navigatepageNums" :class="num==pageInfo.current?'active':''"><a href="javascript:void(0);" @click="select(num,pageInfo.size)">{{num}}</a></li>
+        <li v-if="pageInfo.hasNextPage" class="next"><a href="javascript:void(0);" @click="select(pageInfo.nextPage,pageInfo.size)">下一页</a></li>
+        <li v-else class="next disabled"><a href="javascript:void(0);" >下一页</a></li>
+        <li class="next "><a href="javascript:void(0);" @click="select(pageInfo.pages,pageInfo.size)">尾页</a></li>
+    </div>
+
+</div>

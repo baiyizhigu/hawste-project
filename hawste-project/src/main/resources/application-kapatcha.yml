@@ -1,0 +1,9 @@
+aj:
+  captcha:
+    cache-type: redis
+    interference-options: 2
+    slip-offset: 5
+    water-mark: hawaste
+    type: default
+#    req-frequency-limit-enable: true
+#    req-get-lock-limit: 5

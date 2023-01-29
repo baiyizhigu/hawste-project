@@ -1,0 +1,8 @@
+# 应用名称
+spring:
+  application:
+    name: hawste-project
+  profiles:
+    active: db,mvc,redis,kapatcha,shiro,druid
+
+

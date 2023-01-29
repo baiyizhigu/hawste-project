@@ -1,0 +1,39 @@
+shiro:
+  loginUrl: /notlogin.html #未认证用户跳转到登录的页面请求
+  successUrl: /         #认证成功用户的跳转页面请求地址
+  unauthorizedUrl: /nopermission.html #无访问权限用户的请求跳转地址
+  redisson:
+    cache:
+      cache-lru-size: 100
+      ttl: 300000
+      codec-keys-type: json_jackson_codec
+      codec-type: json_jackson_codec
+    session:
+      expire-type: custom_expire
+      # json 序列化 方式设置   session过期后访问系统  会出现反序列化异常 SavedRequest
+      # FST 格式  性能比JDK序列化效率高  兼容各种编码
+      codec-type: fst_codec
+
+#也可以引入其他配置文件方式
+#spring:
+#  redis:
+#    redisson:
+#      config: classpath:redisson.yml
+
+#redisson配置
+singleServerConfig:
+  idleConnectionTimeout: 10000
+  connectTimeout: 10000
+  timeout: 3000
+  retryAttempts: 3
+  retryInterval: 1500
+  password: null
+  subscriptionsPerConnection: 5
+  clientName: null
+  address: "redis://127.0.0.1:6379"
+  subscriptionConnectionMinimumIdleSize: 1
+  subscriptionConnectionPoolSize: 50
+  connectionMinimumIdleSize: 32
+  connectionPoolSize: 64
+  database: 0
+  dnsMonitoringInterval: 5000

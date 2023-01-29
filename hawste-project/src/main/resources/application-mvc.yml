@@ -1,0 +1,29 @@
+## 应用服务 WEB 访问端口
+#server.port=8080
+server:
+  port: 8080
+  servlet:
+    context-path: /
+# 关闭模板缓存（默认值： true ）
+spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    #静态资源根路径
+  resources:
+    static-locations: classpath:/static/
+  jackson:
+    #Date/DateTime 类型默认转换格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    #设置时区
+    time-zone: GMT+8
+
+#minio配置
+minio:
+  endpoint: 127.0.0.1   #存储节点ip
+  port: 9000            #web管理服务访问端口
+  bucketName: uploads   #对象存储桶名字
+  secure: false         #false为http true为https
+  accessKey: minioadmin # minio服务登录账户密码
+  secreKey: minioadmin
+

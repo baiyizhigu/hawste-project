@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Not LOGIN</title>
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css" />
+    <!-- ace styles -->
+    <link rel="stylesheet" href="/ace/css/ace.min.css" id="main-ace-style" />
+
+    <script src="/jquery/jquery.js"></script>
+    <script src="/layer/layer.js"></script>
+</head>
+<body class="login-layout blur-login">
+    <script>
+        layer.msg('未登录',{
+            time:3000,//3秒后自动关闭
+            end:function (){//关闭窗口的回调函数
+                location.href="/login.html"
+            }
+        })
+    </script>
+
+</body>
+</html>

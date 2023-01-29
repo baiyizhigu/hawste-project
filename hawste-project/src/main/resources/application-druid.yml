@@ -1,0 +1,25 @@
+#druid性能监控配置
+#配置StatViewServlet，开启监控页面
+spring:
+  datasource:
+    druid:
+      stat-view-servlet:
+        enabled: true   #开启性能监控页面，如果使用需设置登录账户密码和黑白名单
+        url-pattern: /druid/*   #配置请求访问路径  内置页面访问是/druid/index.html等
+        login-username: druid
+        login-password: 123456
+        reset-enable: true   #清空数据
+#        deny:    #设置黑名单
+#        allow:   #设置访问白名单
+#配置sql监控
+      filters: stat
+#配置Web监控e
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*   #监控哪些请求url
+        exclusions: "*.js,*.jpg,*.png,*.css,/druid/*,/fonts/*"      #忽略监控的url
+        session-stat-enable: true  #监控session
+        principal-session-name: loginUser   #session中存储的用户key
+      #配置spring监控  通过aop实现  配置切入点表达式，如x.y.z.service.*,配置多个英文逗号分隔
+      aop-patterns: "com.gec.hawsteproject.hawaste.controller.*"
+
